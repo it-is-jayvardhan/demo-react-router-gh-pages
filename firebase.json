@@ -1,0 +1,12 @@
+{
+  "hosting": {
+    "public": "dist",
+    "site": "ambition-tech-blogs-demo-routing",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [ { "source": "**", "destination": "/index.html" } ]
+  }
+}
