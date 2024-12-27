@@ -1,12 +1,10 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Link, Routes, Route } from 'react-router-dom';
+import routes from './routes';
 import './App.css';
-
-const Home = () => <h2>Home Page</h2>;
-const About = () => <h2>About Page</h2>;
 
 function App() {
   return (
-    <Router basename={import.meta.env.VITE_PUBLIC_URL || ''}>
+    <Router>
       <div>
         <h1>React Router Demo</h1>
         <nav>
@@ -16,8 +14,9 @@ function App() {
           </ul>
         </nav>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          {routes.map(({ path, component: Component }, key) => (
+            <Route path={path} element={<Component />} key={key} />
+          ))}
         </Routes>
       </div>
     </Router>
